@@ -110,7 +110,7 @@ interface ICar{
 
 interface IBMW extends ICar{
   color:string
-}
+} 
 
 class Car implements IBMW{
   public color : string = ""

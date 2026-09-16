@@ -1,3 +1,15 @@
+# Mini React from scratch
+
+Run `npm install`, then `npm run dev`. Open http://localhost:3000.
+
+Build: `npm run build`. Type check: `npm run typecheck`.
+
+Detailed Hinglish setup guide: [React-understanding.md](./React-understanding.md).
+
+The component implementation is still a learning exercise in progress.
+
+---
+
 # TypeScript OOP practice
 
 A small Node.js playground with strict TypeScript checking.
@@ -6,11 +18,11 @@ A small Node.js playground with strict TypeScript checking.
 
 ```sh
 npm install
-npm run dev
+npm run dev:oop
 ```
 
 Edit `src/index.ts` and save. Watch mode reruns the file automatically.
-Use `npm start` for a single run, `npm run example` for the completed example,
+Use `npm run oop` for a single run, `npm run example` for the completed example,
 and `npm run typecheck` to check all TypeScript files for errors.
 The runner executes TypeScript without checking types, so run the typecheck
 command as you practice.

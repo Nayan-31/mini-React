@@ -1,17 +1,38 @@
 {
-  "name": "typescript-oop-practice",
+  "name": "build-your-own-mini-react",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts",
+    "start": "npm run dev",
+    "dev:oop": "tsx watch src/index.ts",
+    "oop": "tsx src/index.ts",
     "example": "tsx examples/oop.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "dev:ts": "esbuild src/main.ts --bundle --outfile=dist/main.js --format=esm --sourcemap --watch",
+    "dev:typecheck": "tsc --noEmit --watch --preserveWatchOutput",
+    "dev:css": "tailwindcss -i ./src/style/input.css -o ./dist/style/output.css --watch",
+    "dev:serve": "browser-sync start --server --single --files \"dist/**/*.js,dist/**/*.css,index.html\" --no-notify --no-open --port 3000",
+    "dev": "npm run build && concurrently --kill-others \"npm run dev:ts\" \"npm run dev:typecheck\" \"npm run dev:css\" \"npm run dev:serve\" --names \"ESB,TSC,CSS,BS\" --prefix-colors \"cyan,blue,green,yellow\"",
+    "build": "tsc --noEmit && esbuild src/main.ts --bundle --outfile=dist/main.js --format=esm --minify && tailwindcss -i ./src/style/input.css -o ./dist/style/output.css --minify"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
     "@types/node": "^22.20.2",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^10.0.5",
+    "esbuild": "^0.28.2",
+    "tailwindcss": "^4.3.3",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
+  },
+  "description": "Mini React from scratch with TypeScript",
+  "homepage": "https://github.com/Nayan-31/mini-React#readme",
+  "bugs": {
+    "url": "https://github.com/Nayan-31/mini-React/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nayan-31/mini-React.git"
   }
 }

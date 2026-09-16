@@ -1,4 +1,4 @@
-// Your practice space. Run `npm run dev` to rerun this file when you save.
+// Your practice space. Run `npm run dev:oop` to rerun this file when you save.
 // A complete example lives in examples/oop.ts. Run it with `npm run example`.
 
 console.log("TypeScript OOP playground is ready!");
