@@ -1,8 +1,8 @@
 import { Component } from "../core/component.js";
 
-class App extends Component{
+export class App extends Component{
    render():string{ //render return karti hai Html 
-    return ``
+    return `<div>Hello mini react</div>`
    }
    style():string{ //style return karti hai custom_css
     return ``

@@ -1,5 +1,7 @@
 // React -- components
 
+import { App } from "./components/App.js"
+
 // ```App.tsx```
 // import "./App.css" <- custom css aa jati hai
 
@@ -21,3 +23,13 @@
 // class App extends Component
 // render(); --> idhar humsa backtick kar ke html likhna padega 
 // style(); --> idhar humesa backtick kar ke css likhna padega and return karna padega
+
+
+const root = document.querySelector("#root") as HTMLElement | null
+
+if(!root){
+    throw new Error("root doesn't exists")
+}
+const app = new App()
+
+app.mount(root) // hum jaha pe inject karna chahte hai na apna HTML woh element hamara root element
