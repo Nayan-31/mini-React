@@ -1,6 +1,6 @@
 // React -- components
 
-import { App } from "./components/App.js"
+import { HomePage } from "./page/HomePage.js"
 
 // ```App.tsx```
 // import "./App.css" <- custom css aa jati hai
@@ -30,21 +30,6 @@ const root = document.querySelector("#root") as HTMLElement | null
 if(!root){
     throw new Error("root doesn't exists")
 }
-const app = new App()
+const app = new HomePage()
 
 app.mount(root) // hum jaha pe inject karna chahte hai na apna HTML woh element hamara root element
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
-app.mount(root)
