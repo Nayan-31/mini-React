@@ -33,3 +33,18 @@ if(!root){
 const app = new App()
 
 app.mount(root) // hum jaha pe inject karna chahte hai na apna HTML woh element hamara root element
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)
+app.mount(root)

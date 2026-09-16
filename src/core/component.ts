@@ -7,6 +7,7 @@ export abstract class Component {
     // life cycle method
     mount(parent: HTMLElement){ //pata hai meri ek method hai mount jo ki humesa hack ho sakti hai jo hai mount wali method , mount me mai injection wala logic toh mai likhunga hi , mount me hum accept karnege parent ko parent matlab root element ar us root me mai apna HTML element inject karunga 
       // this.render() //itna likh dene se tumhare pass tumhara string wala HTML aa jayega apne aap
+    this._InjectStyle() //html load hone se pehle hum css dikhayenge 
     const el = this._createElement() //step2 : isko convert karenge ek HTML Element me
     if(el){
         parent.appendChild(el) //dom me daal denge 
@@ -22,10 +23,21 @@ export abstract class Component {
     private _createElement(): HTMLElement | null {
      //step3 : ar isko direct is template element me daal denge
      const template = document.createElement('template');
-     template.innerHTML = this.render()
+     template.innerHTML = this.render().trim() //aap pehle string ko trim karo uske baad inject karo
     //  return template //itna likhne se dikkat kuch nii hota bas ek document Fragment aata hai uske andar aapka content rehta hai wo niii chahiye apne ko apne ko actual content chahaiye isliye apan firstElementChild use karte hai and bypass karne ke liye HTMLElememt use kar rahe hai
     return template.content.firstElementChild as HTMLElement
      
+    }
+
+    private _InjectStyle():void{
+        const css = this.style()
+        if(!css) return 
+        const key = this.constructor.name
+        if(document.querySelector(`style[data-id=${key}]`)) return
+        this._customCss = document.createElement('style')
+        this._customCss.dataset["id"] = key; //toh data set matlab aisa kuch data-id thik hai ab humne ise kyu lagaya kyuki jab multiple times agar hum same css ko mount kar rahe hai toh utni baar style ki reference ban rahi hai jo ki hume nahi chahiye isliye hum yaha logic likh sakte hai ki agar same dataset then ek hi baar css load karo
+        this._customCss.textContent = css.trim();
+        document.head.appendChild(this._customCss)
     }
 
 }

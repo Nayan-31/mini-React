@@ -1,12 +1,23 @@
 import { Component } from "../core/component.js";
 
-export class App extends Component{
-   render():string{ //render return karti hai Html 
-    return `<div>Hello mini react</div>`
-   }
-   style():string{ //style return karti hai custom_css
-    return ``
-   }
+export class App extends Component {
+
+    render(): string {
+        return `
+            <div class="underline">
+                <h1 id="head">Hello mini react</h1>
+            </div>
+        `
+    }
+
+    style(): string {
+        return `
+            #head {
+                color: cyan;
+                font-weight: 700;
+            }
+        `
+    }
 }
 
 //jo bhi injection wala logic hoga woh saara ka saara component.ts  pe hoga 
