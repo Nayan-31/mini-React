@@ -1,22 +1,33 @@
 import { Component } from "../core/component.js";
 
-export class App extends Component {
+export class button extends Component {
 
     render(): string {
+        this._InjectStyle()
         return `
-            <div class="underline">
-                <h1 id="head">Hello mini react</h1>
-            </div>
+           <button id="btn">
+           click me
+           </button>
         `
     }
 
     style(): string {
         return `
-            #head {
+            #btn {
+               padding : 3px 5px;
+               border-radius : 1vh;
+               border: 1px solid black;
                 color: cyan;
                 font-weight: 700;
             }
         `
+    }
+
+    override onMount(): void {
+        //idhar js ke logics likh sakte hai apan
+        document.querySelector("#btn")?.addEventListener("click", ()=>{
+            console.log("clicked")
+        })
     }
 }
 

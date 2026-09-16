@@ -13,11 +13,23 @@ export abstract class Component {
         parent.appendChild(el) //dom me daal denge 
         this._element = el // ye kar rahe hai kyuki unmount karne ke time kaam aayega 
     }
+    this.onMount() //jab apna style inject ho jaye html inject ho jaye then isko chalate hai
     }
 
     unmount(){
+      this.onUnMount() //ye hum remove karne se pehle chalate hai
       this._element?.remove() 
       this._element = null //poori tarah se dom se hata hi do 
+    }
+
+
+    //declaration kar raha hu bas 
+    onMount(){ //jo ki polymorphism override kar dega apne child component me matlab ye method ka logic mai yaha pe nii likhunga iski logics mai child classes me banaunga idhar nii banaunga 
+
+    }
+
+    onUnMount(){
+
     }
 
     private _createElement(): HTMLElement | null {
@@ -29,7 +41,7 @@ export abstract class Component {
      
     }
 
-    private _InjectStyle():void{
+    protected _InjectStyle():void{
         const css = this.style()
         if(!css) return 
         const key = this.constructor.name
